@@ -1,0 +1,46 @@
+.base{
+    width: 150px;
+    box-sizing: border-box;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    border-width: 2px;
+    border-style: none;
+}
+.red{
+    color: red;
+    border-color: red;
+}
+.black {
+    color: black;
+    border-color: black;
+}
+.equal {
+    color: springgreen;
+    background-color: transparent;
+}
+.box {
+    border-style: double;
+    background-color: #ebebeb;
+}
+.win{
+    color: #fff;
+    background-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    height: 150px;
+    line-height: 146px;
+    transition: all .5s ease-in-out;
+}
+.restart{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    box-sizing: border-box;
+    background-color: rgb(39, 173, 207);
+    color: #333;
+    text-align: center;
+}
