@@ -19,3 +19,26 @@ nodemon     检测文件变化    nodemon --exec ts-node ./src/index.ts ts为扩
 ### 扩展类型： 类型名称、枚举、接口、类
 
 TypeScript的接口的作用： 用于约束类型，对象、函数的契约；
+
+
+```puml
+@startuml
+
+
+Tank <|-- PlayerTank
+Tank <|-- EnemyTank
+
+@enduml
+
+```
+# 类
+## 类的继承
+
+    自类拥有父类属性
+## 重写
+
+    子类将父类重新赋值
+
+    private protected public
+
+    每个类拥有一个父类
