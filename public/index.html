@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #root {
+            display: flex;
+            justify-content: center;
+        }
+
+        #panel {
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            position: relative;
+        }
+        #msg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,.3);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            display: none;
+        }
+        #msg p{
+            border: 2px solid #fff;
+            padding: 7px 14px;
+            color: #fff;
+        }
+        #control {
+            width: 150px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #next {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        #score {
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #info {
+            /* border: 1px solid black;  */
+        }
+
+        button {
+            border: 1px solid springgreen;
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="panel">
+            <div id="msg"><p>暂停</p></div>
+        </div>
+        <div id="control">
+            <div id="next"></div>
+            <div id="score">0</div>
+            <div id="info">
+                <!-- <button id="moveTop">向上移动</button> -->
+                <button id="moveBottom">向⬇️移动</button>
+                <button id="moveLeft">向←移动</button>
+                <button id="moveRight">向→移动</button>
+                <button id="rotate">上旋转</button>
+                <!-- <button id="show">展示</button> -->
+                <!-- <button id="remove">移除</button> -->
+                <button id="start">空格 暂停、继续、开始</button>
+                <button id="start">start</button>
+                <button id="pause">pause</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

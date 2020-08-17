@@ -1,44 +1,25 @@
-## 说明文档
+# 俄罗斯方块
 
-## 安装typescript
+## 安装
 
-- 安装
-npm i -g typescript
-- 编译
-tsc [source]
-- 生成ts默认配置文件
-tsc --init
-- 第三方工具
-ts-node     再内存中编译，同时运行
-nodemon     检测文件变化    nodemon --exec ts-node ./src/index.ts ts为扩展名的文件变化后，执行后边的命令
+yarn init
 
+## 运行
 
+yarn start
 
-## 接口类型
+## 打包
 
-### 扩展类型： 类型名称、枚举、接口、类
-
-TypeScript的接口的作用： 用于约束类型，对象、函数的契约；
+yarn build
 
 
-```puml
-@startuml
+# 开发
 
+1. 单一职责原则
+2. 开闭原则     系统中的类，对扩展开放，对修改关闭
 
-Tank <|-- PlayerTank
-Tank <|-- EnemyTank
+数据-界面分离模式
 
-@enduml
-
-```
-# 类
-## 类的继承
-
-    自类拥有父类属性
-## 重写
-
-    子类将父类重新赋值
-
-    private protected public
-
-    每个类拥有一个父类
+面向对象开发
+- 所有属性私有化
+- 
