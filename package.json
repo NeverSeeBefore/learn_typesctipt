@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch ./src -e ts --exec ts-node ./src/index.ts"
+    "dev": "nodemon --watch ./src -e ts --exec ts-node"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,10 @@
   "homepage": "https://github.com/NeverSeeBefore/learn_typesctipt#readme",
   "devDependencies": {
     "@types/node": "^14.0.23"
+  },
+  "dependencies": {
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "reflect-metadata": "^0.1.13"
   }
 }
