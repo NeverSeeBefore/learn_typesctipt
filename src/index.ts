@@ -3,8 +3,6 @@
 //     age: number
 // }
 
-import { appendFile } from "fs";
-
 
 // interface User {
 //     name: string,

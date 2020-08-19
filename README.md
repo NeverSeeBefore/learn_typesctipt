@@ -127,3 +127,33 @@ InstanceType<T> //  获取构造函数类型的实例类型
 
 ```
 
+# 声明文件
+    1. 什么是声明文件
+        以```·d.ts```结尾的文件
+    2. 声明文件的作用
+        为js代码提供类型声明
+    3. 生命文件的位置
+        -   可以放在tsconfig include下的路径里
+        -   node_modules/@types文件夹中
+        -   手动配置  tsconfig.typesRoots :[]   会导致前两个默认的位置失效
+        -   与js代码所在目录相同，且文件名也相同对文件  test.js + test.d.ts
+    3. 编写
+        -   **自动生成**
+            配置    tsconfig.declaration: true
+            适用于ts编写的代码
+        -   **手动编写**
+            对已有的js书写的库，手动编写声明文件
+    4. 三斜线指令
+        -   /// <reference path="../../index.d.ts" />
+    5. 发布
+        发布到  @types/***
+        -   进入DefinitelyTyped
+        -   fork
+        -   clone
+        -   新建分支（mylodash4.3）,在新分支中进行声明文件的开发
+            在types中新建文件夹开发
+        -   push
+        -   在官放类型库，提交pull request
+        -   等待审核
+        之后就可以通过命令  ```npm install @types/***```
+
