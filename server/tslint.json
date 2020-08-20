@@ -5,8 +5,10 @@
     ],
     "jsRules": {},
     "rules": {
+        "no-console": false,
         "no-empty": true,
-        "no-console": false
+        "interface-name": true,
+        "ordered-imports": false
     },
     "rulesDirectory": []
 }
