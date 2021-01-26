@@ -47,3 +47,32 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
     依赖安装 --registry=https://registry.npmjs.org/
             --registry=https://registry.npm.taobao.org/
+
+
+
+## 应用 redux-thunk
+
+ 1. 应用中间件
+ applyMiddleWare(thunk as ThunkMiddleWare<IRootState>)
+
+ 2. 创建 异步action
+// function deleteMovie(id: string)
+//     : ThunkAction<Promise<void>, IRootState, any, MovieActions> {
+//     return async (dispatch, getState) => {
+//         dispatch(createSetIsLoadingAction(true));
+//         await MovieService.deleteMovie(id);
+//         dispatch(createDeleteMovieAction(id));
+//         dispatch(createSetIsLoadingAction(false));
+//     }
+// }
+
+ 3. 触发action
+// store.dispatch(deleteMovie('id'));
+
+## 应用 路由
+    安装
+    react-router 路由核心包，包含跳转跳转逻辑
+    react-router-dom link组件等
+    @types/react-router @types/react-router-dom
+    
+

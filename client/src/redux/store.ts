@@ -12,7 +12,7 @@ export const store = createStore(
 // redux-thunk
 
 // 1. 应用中间件
-// applyMiddleWare(thunk as ThunkMiddleWare<IRootState)
+// applyMiddleWare(thunk as ThunkMiddleWare<IRootState>)
 
 // 2. 创建 异步action
 // function deleteMovie(id: string)
