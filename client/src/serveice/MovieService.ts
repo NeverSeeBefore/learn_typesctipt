@@ -41,7 +41,8 @@ export class MovieService {
         // console.log(data);
         return data.data;
     }
-    public static async editMovie(id: string, movie: IMovie): Promise<IResp<any>> {
+    //                                               所有属性全部非必选，因为不一定全部修改
+    public static async editMovie(id: string, movie: Partial<IMovie>): Promise<IResp<any>> {
         const { data } = await axios.put("/api/movie/" + id, movie);
         // console.log(data);
         return data;

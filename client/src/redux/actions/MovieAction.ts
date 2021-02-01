@@ -1,8 +1,8 @@
 import { IMovie, ISearchCondition, MovieService } from "../../serveice/MovieService";
-import { IMovieCondition } from "../reducers/MovieReducer";
 import { IAction } from "./ActionTypes";
 import { ThunkAction } from "redux-thunk"
 import { IRootState } from "../reducers";
+import { SwitchType } from "../../components/MovieTable/types";
 
 export type saveMovieActionType = IAction<'movie_save', {
     movies: IMovie[],
@@ -42,6 +42,23 @@ function createDeleteMovieAction(id: string): deleteMovieActionType {
     }
 }
 
+export type changeSwitchActionType = IAction<'movie_switch_change', {
+    type: SwitchType;
+    newVal: boolean;
+    id: string;
+}>
+function createChangeSwitchAction(type: SwitchType, newVal: boolean, id: string)
+    : changeSwitchActionType {
+    return {
+        type: 'movie_switch_change',
+        payload: {
+            type,
+            newVal,
+            id
+        }
+    }
+}
+
 // 根据条件获取电影数据
 function fetchMovies(condition: ISearchCondition)
     //  返回值类型 ，整个redux的state，额外数据，电影actions
@@ -78,12 +95,35 @@ function deleteMovie(id: string)
     }
 }
 
-export type MovieActions = setConditionActionType | setIsLoadingActionType | saveMovieActionType | deleteMovieActionType;
-export default {
+function changeSwitch(type: SwitchType, newVal: boolean, id: string)
+    //  返回值类型 ，整个redux的state，额外数据，电影actions
+    : ThunkAction<Promise<void>, IRootState, any, MovieActions> {
+    return async (dispatch, getState) => {
+        // 1、设置加载状态
+        dispatch(createSetIsLoadingAction(true));
+        // 2. 改变本地数据
+        dispatch(createChangeSwitchAction(type, newVal, id));
+        // 3. 发送请求修改
+        const resp = await MovieService.editMovie(id, {
+            [type]: newVal
+        });
+        console.log('change switch result ',resp);
+        // 4. 如果出错改回原状态
+        // 5. 关闭加载状态
+        dispatch(createSetIsLoadingAction(false));
+    }
+}
+
+
+export type MovieActions = setConditionActionType | setIsLoadingActionType | saveMovieActionType | deleteMovieActionType | changeSwitchActionType;
+const MovieAction = {
     createSaveMovieAction,
     createDeleteMovieAction,
     createSetIsLoadingAction,
     createSetConditionAction,
+    createChangeSwitchAction,
     fetchMovies,
-    deleteMovie
+    deleteMovie,
+    changeSwitch
 }
+export default MovieAction;

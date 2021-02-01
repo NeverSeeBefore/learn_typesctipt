@@ -1,5 +1,5 @@
 import { IMovie, ISearchCondition } from "../../serveice/MovieService";
-import { deleteMovieActionType, MovieActions, saveMovieActionType, setConditionActionType, setIsLoadingActionType } from "../actions/MovieAction";
+import { changeSwitchActionType, deleteMovieActionType, MovieActions, saveMovieActionType, setConditionActionType, setIsLoadingActionType } from "../actions/MovieAction";
 import { IReducer } from './ReducerTypes';
 
 export type IMovieCondition = Required<ISearchCondition>
@@ -34,6 +34,8 @@ export default function MovieReducer(state: IMovieState = defaultState, action: 
             return setCondition(state, action);
         case "set_isLoading":
             return setIsLoading(state, action);
+        case "movie_switch_change":
+            return changeSwitch(state, action);
         default:
             return state;
     }
@@ -78,6 +80,25 @@ const deleteMovie: IReducer<IMovieState, deleteMovieActionType> = (prevState, ac
         movies: movies,
         movieCount: flag ? prevState.movieCount - 1 : prevState.movieCount,
         totalPage: Math.ceil(prevState.movieCount - 1 / prevState.condition.limit)
+    }
+}
+
+const changeSwitch: IReducer<IMovieState, changeSwitchActionType> = (prevState, action) => {
+    const movie = prevState.movies.find(d => d._id === action.payload.id);
+    if (!movie) {
+        return prevState;
+    }
+    const newMovie = {...movie};
+    newMovie[action.payload.type] = action.payload.newVal;
+    const newData = prevState.movies.map(d => {
+        if (d._id === action.payload.id) {
+            return newMovie;
+        }
+        return d;
+    })
+    return {
+        ...prevState,
+        movies: newData
     }
 }
 

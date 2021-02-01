@@ -6,7 +6,7 @@ interface IParams {
 }
 interface IProps extends RouteComponentProps<IParams> { }
 
-export default class extends React.Component<IProps> {
+export default class EditMovie extends React.Component<IProps> {
 
     render() {
         console.log(this.props);

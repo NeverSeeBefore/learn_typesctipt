@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css'
 import './index.css';
 import App from './App';
-import { MovieService } from './serveice/MovieService';
-import { store } from './redux/store';
-import MovieAction from './redux/actions/MovieAction';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -90,13 +88,3 @@ ReactDOM.render(
 // store.dispatch(MovieAction.createSetConditionAction({
 //   page: 2
 // }));
-
-store.dispatch(
-  MovieAction.fetchMovies({
-    page: 2
-  }) as any
-).then(() => {
-  store.dispatch(
-    MovieAction.deleteMovie('6006f457958a352b73a7ce1d')
-  );
-})

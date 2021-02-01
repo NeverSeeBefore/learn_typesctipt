@@ -52,10 +52,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## 应用 redux-thunk
 
- 1. 应用中间件
+1. 应用中间件
  applyMiddleWare(thunk as ThunkMiddleWare<IRootState>)
 
- 2. 创建 异步action
+2. 创建 异步action
 // function deleteMovie(id: string)
 //     : ThunkAction<Promise<void>, IRootState, any, MovieActions> {
 //     return async (dispatch, getState) => {
@@ -66,7 +66,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 //     }
 // }
 
- 3. 触发action
+3. 触发action
 // store.dispatch(deleteMovie('id'));
 
 ## 应用 路由
@@ -74,5 +74,18 @@ To learn React, check out the [React documentation](https://reactjs.org/).
     react-router 路由核心包，包含跳转跳转逻辑
     react-router-dom link组件等
     @types/react-router @types/react-router-dom
-    
 
+1. 使用BrowserRouter包裹根元素
+<BrowserRouter>
+    <Route path="/" component={Layout}></Route>
+</BrowserRouter>
+2. 使用Route组件 匹配路由
+3. 使用NavLink跳转
+
+## 应用 antd
+    安装 antd
+    引入css  import 'antd/dist/antd.css'
+    使用antd组件
+
+## 使用 react-redux 结合 react 和 redux
+    安装 react-redux @types/react-redux
