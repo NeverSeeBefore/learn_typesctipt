@@ -40,20 +40,24 @@ const upload = multer({
 const router = Express.Router();
 
 router.post("/", upload.single("imgfile"), (req, res) => {
-    ResponseHelper.sendData("上传成功", res);
+    const fileName = `/api/uploads/${req.file.filename}`
+    ResponseHelper.sendData(fileName, res);
 })
 
 // 捕获上传文件中的错误
 // router.post("/", (req, res) => {
-//     upload.single("imgfile")(req, res, (err) => {
+//     upload.single("imgfile")(req, res, (err,) => {
 //         if (err instanceof multer.MulterError) {
 //           // 发生错误
-//         } else if (err) {
+//             return ResponseHelper.sendError("上传失败" + JSON.stringify(err), res);
+//         } if (err) {
 //           // 发生错误
+//             return ResponseHelper.sendError("上传失败" + JSON.stringify(err), res);
 //         }
 //         // 一切都好
+//         console.log(req.file);
+//         return ResponseHelper.sendData('上传成功' + JSON.stringify(req.file), res);
 //       })
-//     ResponseHelper.sendData("上传成功", res);
 // })
 
 export default router;
