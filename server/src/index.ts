@@ -5,6 +5,7 @@ import { SearchCondition } from "./entities/SearchCondition";
 import { MovieService } from "./services/MovieService";
 import MovieRouter from "./routes/MovieRoute";
 import UploadRouter from "./routes/UploadRoute";
+import path from 'path';
 
 const condition: any = { page: 1, limit: 5, key: '电影名称1' }
 
@@ -15,5 +16,6 @@ app.use(Express.json()); // 配置中间件，用于解析消息体中的json格
 
 app.use("/api/movie", MovieRouter);
 app.use("/api/upload", UploadRouter);
+app.use("/api/test/", Express.static(path.resolve(__dirname, '../public/uploads/')));
 
 app.listen(8998, () => console.log('server is listening on 8998'));

@@ -1,4 +1,4 @@
-import Express from "express";
+import Express, { json } from "express";
 import multer from "multer";
 import path from "path";
 import { ResponseHelper } from "./ResponseHelper";
@@ -39,8 +39,10 @@ const upload = multer({
 
 const router = Express.Router();
 
+router.use("/", Express.static(path.resolve(__dirname, '../../public/uploads/')));
+
 router.post("/", upload.single("imgfile"), (req, res) => {
-    const fileName = `/api/uploads/${req.file.filename}`
+    const fileName = `/api/upload/${req.file.filename}`
     ResponseHelper.sendData(fileName, res);
 })
 
