@@ -11,7 +11,7 @@ const condition: any = { page: 1, limit: 5, key: '电影名称1' }
 const app = Express();
 
 app.use(Express.json()); // 配置中间件，用于解析消息体中的json格式数据
-app.use(history());
+app.use(history()); // 静态文件的请求，都转到index.html
 
 
 app.use("/", Express.static(path.resolve(__dirname, '../public/build/')));
