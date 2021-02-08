@@ -9,3 +9,9 @@
 .container .header {
     color: #009688;
 }
+
+.container .content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}

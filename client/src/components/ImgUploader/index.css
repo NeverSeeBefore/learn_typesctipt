@@ -1,0 +1,15 @@
+/* .uploader-display {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px dashed #d9d9d9;
+    transition: border-color .3s;
+}
+
+.uploader-display:hover {
+    border-color: #40a9ff;
+} */

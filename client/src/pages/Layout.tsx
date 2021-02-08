@@ -42,7 +42,7 @@ const _Layout: React.FC = () => {
                             </SubMenu>
                         </Menu>
                     </Sider>
-                    <Content>
+                    <Content className="content">
                         <Route path="/" component={Home} exact={true}></Route>
                         <Route path="/movie" component={MovieList} exact></Route>
                         <Route path="/movie/add" component={AddMovie}></Route>
